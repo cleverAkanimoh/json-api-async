@@ -25,13 +25,16 @@ async function getGenderByName() {
   }
 
   searchButton.textContent = "searching...";
+  console.log("first log that pauses");
 
   const response = await fetch(`https://api.genderize.io?name=${searchValue}`);
   console.log(response);
 
   const data = await response.json();
 
-  result.innerText = `Gender ${data.gender} count - ${data.count} gender probability ${data.probability}`;
+  result.innerText = `name ${data.name} | Gender ${
+    data.gender == "male" ? "Boy" : "Girl"
+  } | count - ${data.count} | gender probability ${data.probability}`;
   searchButton.textContent = "Check gender";
   console.log("Data: ", data);
 }
