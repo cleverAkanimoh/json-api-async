@@ -28,7 +28,6 @@ async function getGenderByName() {
   console.log("first log that pauses");
 
   const response = await fetch(`https://api.genderize.io?name=${searchValue}`);
-  console.log(response);
 
   const data = await response.json();
 
